@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Driver {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String   @unique
+  isActive  Boolean  @default(true)
+  orders    Order[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Order {
+  id           String   @id @default(cuid())
+  barcode      String   @unique
+  customerName String
+  phone        String
+  address      String
+  amount       Float
+  status       String   @default("pending") // pending, delivered, postponed, returned
+  driverId     String?
+  driver       Driver?  @relation(fields: [driverId], references: [id])
+  receiptImage String?
+  notes        String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}

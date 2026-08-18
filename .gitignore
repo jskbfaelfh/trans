@@ -1,0 +1,53 @@
+# Logs & Temp
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Node Modules & Builds
+node_modules/
+server/node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Environment & Credentials Security
+.env
+.env.*
+server/.env
+server/.env.*
+*.pem
+*.key
+.wwebjs_auth/
+.wwebjs_cache/
+sessions/
+
+# Uploaded Media Storage
+uploads/
+uploads/receipts/
+uploads/proofs/
+public/uploads/
+server/uploads/
+server/uploads/*
+
+# Databases
+*.db
+*.sqlite
+*.db-journal
+*.db-wal
+*.db-shm
+prisma/dev.db
+server/prisma/*.db
+server/prisma/dev.db
+
+# Editor directories
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.claude/
+.windsurf/
+.agents/
+server/.claude/
+server/.windsurf/
+server/.agents/
+.DS_Store
